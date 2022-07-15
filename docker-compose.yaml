@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  spring_db:
+    container_name: spring_db
+    image: postgres:14-alpine3.14
+    restart: "no"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=springboot_course
+    ports:
+      - "8089:5432"
+    volumes:
+      - ./spring_db_data:/var/lib/postgresql
+
+volumes:
+  spring_db:
+    driver: local
